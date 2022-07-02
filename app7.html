@@ -1,0 +1,1320 @@
+
+<!DOCTYPE html>
+<html>
+  
+<head>
+	
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	
+	
+    <style>
+
+		body {
+
+			font-family: Roboto, Arial, sans-serif, Verdana;
+		 
+			margin: 15px;
+			margin-top: 2%;
+		}
+		
+		
+		#div1
+		{
+	 
+				width: 80%;
+		}
+		
+		.btnView {
+
+			white-space: nowrap;
+			overflow-hidden;
+			background-color: #F0F8FF;
+			height: 30px;
+			font-weight: bold;
+		}
+		
+	#displayTable1 td {
+				word-wrap: break-word;
+				max-width: 500px;	
+		
+		}
+		
+		
+	.btnView:hover {
+		  background-color:#002ead;
+		  color: #FFF;
+		  transition: 0.2s;
+	  }
+	  
+	  
+	  #status {
+	  
+		font-weight: bold;
+		font-size: 20px; 
+	  }
+	  
+	  
+	  #focusedLibraryHeader {
+		font-weight: bold;
+		font-size: 30px; 
+		
+	  }
+	  
+	  
+	 #popup_container2{      
+			  display : none;      
+			  width :100%;      
+			  height : 100%;      
+			  background : rgba(50,50,50,0.5);      
+			  position : fixed;      
+			  top : 0;    
+			  left: 0;
+			   z-index : 500;      
+			  }      
+			  
+			  #popup2{      
+			  background : #FFF;      
+			  width : 85%;      
+			  height : 75%;
+			 
+			  margin : 15vh auto 10px auto;      
+			  overflow-y: scroll;
+	 
+	  }     
+	  
+	 
+	 
+			
+	 
+
+	.btn2 { 
+			background-color: #FFFFFF;  
+			border: 0;
+			font-weight: bold;
+			color: #00000;
+			width: 100px;
+			height: 30px;
+	 
+			hover: orange;
+			font-size: 25px;
+			height: 50px; 
+		   }
+	  
+	.btn2:hover { 
+			   background-color: #000080;
+			   color: #FFFFFF;
+			   font-size: 25px;
+			   }
+
+	.btn2:active {
+			   background-color: orange;
+			   color: #FFFFFF;
+			   font-size: 25px;
+		}    	
+			
+
+
+
+	.entry {
+		width: 30%;
+		display: inline-block;
+
+
+		min-height: 235px;
+		max-height: 450px;
+		overflow-y: auto;
+		vertical-align: top; 
+		border: 1px solid #dbdbdb;
+		border-radius: 5px;
+		background-color: #FFFFFF;
+		margin: 10px;
+		border-bottom: 2px solid #dbdbdb;
+
+	}
+
+
+	.entry:hover {
+		border-bottom: 2px solid blue;
+	}
+
+	.libraryName {
+		padding-left: 5px
+	}
+
+	.libraryDescription {
+		margin-left: 5px;
+		margin-right: 5px;
+		padding: 5px;
+
+		font-size: 15px;
+		 
+		border-radius: 5px;
+		border: solid 1px #808080 ;
+		background-color: #f8f9fa;
+		min-height: 75px;
+		max-height: 75px;
+		overflow-y: auto;
+
+	}
+
+	.menuButton1 {
+
+		margin: 5px;
+		width: 95%;
+		background-color: #FFFFFF;
+		height: 30px;
+		font-size: 14px;
+		font-weight: bold;
+		white-space: nowrap;
+
+
+	}
+
+	.menuButton1:hover {
+
+
+		background-color: #FAF9F6	;
+		margin: 5px;
+		width: 95%;
+
+		height: 30px;
+		font-size: 14px;
+		font-weight: bold;
+		white-space: nowrap;
+
+	}
+	.newLibraryButton {
+
+		margin: 5px;
+		width: 200px;
+		background-color: #00008B;
+		color: #FFFFFF;
+		height: 30px;
+		font-size: 14px;
+		font-weight: bold;
+		white-space: nowrap;
+	}
+
+	.newLibraryButton:hover {
+
+		background-color: #2E5984	;
+		margin: 5px;
+		width: 200px;
+
+		height: 30px;
+		font-size: 14px;
+		font-weight: bold;
+		white-space: nowrap;
+
+	}
+	
+	
+	.backToMainMenuButton {
+
+		margin: 1px;
+		width: 220px;
+		background-color: #228B22;
+		color: #FFFFFF;
+		height: 50px;
+		font-size: 18px;
+		font-weight: bold;
+		white-space: nowrap;
+	}
+
+	.backToMainMenuButton:hover {
+
+		background-color: #2E5984	;
+		margin: 1px;
+		width: 220px;
+
+		height: 50px;
+		font-size: 18px;
+		font-weight: bold;
+		white-space: nowrap;
+
+	}
+	
+
+
+	#popup_container{      
+	  display : none;      
+	  width :100%;      
+	  height : 100%;      
+	  background : rgba(50,50,50,0.5);      
+	  position : fixed;      
+	  top : 0;    
+	  left: 0;
+	   z-index : 500;      
+	}      
+
+	#popup{      
+	  background : #FFF;      
+	  width : 500px;      
+	  height : auto;
+	 
+	  margin : 25vh auto auto auto;      
+
+	}    
+
+
+		  
+		  
+	  
+	  
+		 
+  
+@media screen and (max-width: 500px) {
+	.entry {
+		width: 100%;
+		margin: 0px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.entry {
+		width: 100%;
+		margin: 0px;
+	}
+}
+
+    </style>
+	
+	
+	<script src="/socket.io/socket.io.js"></script>
+		
+	<script>
+	
+		let urlQueue = [];
+		let iterator = 0;
+		
+		let searchLoadType = 1;
+		
+		let currentPageNumber;
+		let pageCount;
+		let resultsPerPage;	
+		
+		
+		let previousPage;
+		let nextPage;
+		
+	   let appHTMLPage = "app7.html"
+	   
+	   let focusedLibrary = '';
+	   
+	
+		function setStatus(strStatus) {
+			
+				document.getElementById('status').innerHTML = strStatus;
+		}
+		
+	
+	 function nextURL(interateValue) {
+			
+			 let documentData = {
+				command: 'getURLData',
+				appHTML: appHTMLPage,
+				parameters: urlQueue[interateValue],
+				resultsPerPage: resultsPerPage,
+				libraryName: focusedLibrary
+				
+			};
+
+	
+			setStatus(`<b>Status: Retrieving information for  ${urlQueue[interateValue]}</b>`);
+			socket.emit('client_msg', documentData);
+
+	 }
+
+	function buildSampleData() {
+		
+			let sampleArray = ['https://www.msn.com/', 'https://www.hsph.harvard.edu/nutritionsource/healthy-weight/best-diet-quality-counts/',
+				'https://www.everydayhealth.com/diet-nutrition/all-articles/', 'https://www.youtube.com/watch?v=zwFbk-9NrKk',
+				'https://www.youtube.com/watch?v=j_T6dGHaFfo', 'https://www.videogameworld.net/', 'https://www.youtube.com/watch?v=Cv0N8g68t2w',
+				'https://www.youtube.com/watch?v=mGGZ5QgRGSU', 'https://www.youtube.com/watch?v=vfOZ40sVu0E',
+				'https://www.youtube.com/watch?v=rPB8tBib-iA', 'https://www.youtube.com/watch?v=lo0ZdwErgdU',
+				'https://www.pjstar.com', 'https://www.cantondailyledger.com/', 'https://www.vice.com/'];
+				
+				
+				
+ 
+			urlQueue = [];
+			iterator = 0;						
+				
+			sampleArray.forEach((x) => { 	
+				urlQueue.push(x);
+	
+			});
+
+			nextURL(0);
+		
+	}
+	
+		
+
+
+       function uploadFile(allFiles) {
+		
+		urlQueue = [];
+		iterator = 0;		   
+ 
+		let documentData = {
+				command: 'uploadFile',
+				parameters: allFiles[0]
+			};
+			
+		let file = allFiles[0],
+		fileRead = new FileReader();
+		fileRead.readAsBinaryString(file);
+		fileRead.onloadend = function(){
+		
+		urlQueue = [];
+		iterator = 0;	
+				
+		let splitURLS = fileRead.result.split('\r\n');
+		
+		for(const element in splitURLS ) {
+
+				if(splitURLS[element].length > 0) {
+						urlQueue.push(splitURLS[element]);
+				}		
+		}	
+				
+		if(urlQueue.length > 0) {
+			nextURL(0);
+		}
+				
+			
+		}	
+ 
+	 }		
+		
+
+	function addURL() {
+	
+	
+		let format1 = focusedLibrary.replace(/ /g, '');
+		
+ 
+ 
+ 
+		let getURL = prompt("Please enter a URL to be added to library", "http://");
+		
+		if(getURL === 'http://' || getURL === '' || getURL === null) {
+		
+			alert("Error: you did not enter a valid url.");
+			return;
+		}
+		
+		 let documentData = {
+			command: 'getURLData',
+			appHTML: appHTMLPage,
+			parameters: getURL,
+			resultsPerPage: resultsPerPage,
+			libraryName: format1
+		};
+ 
+ 
+ 
+ 
+
+ 
+		setStatus(`<b>Status: Retrieving information for  ${getURL}</b>`);
+
+		socket.emit('client_msg', documentData);
+
+		
+	}
+	
+	
+	
+		 
+	function modifyPageNumberLabel(currentPage, totalPages) {
+		
+		if(totalPages == null) {
+				return `Page ${currentPage} of 1`;
+		}
+		
+		return `Page ${currentPage} of ${totalPages}`;
+		
+	}
+	
+	
+	function openURLStore() {
+
+
+		 let documentData = {
+			command: 'loadApp',
+			appHTML: appHTMLPage,
+			parameters: '' 			
+		};
+
+		
+		socket.emit('client_msg', documentData);
+
+	
+	  }
+	 
+	   
+	
+          var socket = io();
+		  let jsonList = [];
+
+	      socket.on('connection_accept', function(data){
+		  
+		  
+					  openURLStore();
+					
+		  
+					   socket.on('server_msg', function(data){ 
+					   
+							let parseJSON = JSON.parse(data);
+
+							let jsString;
+							let htmlString;
+
+							let header1;
+							let buildHTML;
+							
+							let documentData;
+							
+							
+							let data1; 	
+							let format1;
+					   
+							switch(parseJSON.returnType)
+							{
+									case 'loadedAppData':
+								
+										jsString = document.createElement('SCRIPT')
+										htmlString = document.createTextNode(parseJSON.javascript);
+										
+										jsString.appendChild(htmlString);	
+										document.body.appendChild(jsString);
+
+										documentData = {
+											
+													command: 'getURLLibraryList',
+													appHTML: appHTMLPage											
+										};
+											
+										socket.emit('client_msg', documentData);
+										break;
+										
+										
+									case 'urlLibraryListRetrieved':
+	
+										let allDirectories = parseJSON.directoryList;
+										allDirectories.forEach((x) => { 
+													appendLibraryEntryDiv(x[0], x[1], x[2]);
+										});
+
+ 
+										break;
+										
+										
+									case 'libraryCreatedSuccess':
+									
+										format1 = parseJSON.libraryName.replaceAll('_', ' ');
+									
+										alert(`Library ${format1} has been created!`);
+										closePopup();
+										
+										document.getElementById('displayTable1').innerHTML = '';
+										openURLStore();
+										
+										break;
+										
+ 
+									case 'libraryCreatedFail':
+									
+										format1 = parseJSON.libraryName.replaceAll('_', ' ');
+										alert(`Library ${format1} already exists. Please choose another name.`);
+										break;
+										
+									case 'deleteURLLibrary':
+									
+									
+									    format1 = parseJSON.libraryName.replaceAll('_', ' ');
+										alert(`Library ${format1} has been deleted`);
+										
+										document.getElementById('displayTable1').innerHTML = '';
+										openURLStore();						
+										
+										break;
+										
+									case 'pageLoaded':
+
+										jsonList = parseJSON.data;
+										document.getElementById('div1').innerHTML = "";
+										
+
+										buildHTML = "<table class='table table-bordered' id='displayTable1'><thead>";
+										buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";						
+										
+										for(let k = jsonList.length-1; k >= 0; k--) 
+										{
+											buildHTML += `<tr><td>${jsonList[k].id}</td><td>${jsonList[k].query_date}</td><td>${jsonList[k].url}</td><td>
+											${jsonList[k].title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+										}
+														
+										buildHTML += "</tbody></table>"	
+										document.getElementById('div1').innerHTML = buildHTML;
+										
+										previousPage = document.getElementById("previousPage");
+										nextPage = document.getElementById("nextPage");
+										
+ 
+									
+									   if(parseJSON.pageNumber > 1) {
+											previousPage.disabled = false;
+									   }
+									   else
+									   {
+											previousPage.disabled = true;
+						 
+									   }
+									   
+									   if(parseJSON.pageNumber < parseJSON.totalPages)  {
+											nextPage.disabled = false;
+									   }
+									   else {
+											nextPage.disabled = true;
+									   }
+									   
+										let pageLabelData = modifyPageNumberLabel(parseJSON.pageNumber, parseJSON.totalPages);
+										document.getElementById('pageNumber').innerHTML = pageLabelData;
+										
+										
+										currentPageNumber = parseJSON.pageNumber;
+										pageCount = parseJSON.totalPages;
+										resultsPerPage = parseJSON.resultsPerPage;
+
+										break;
+
+									case 'allDataLoaded':
+
+										jsonList = parseJSON.data;
+										document.getElementById('div1').innerHTML = "";
+										
+
+										buildHTML = "<table class='table table-bordered' id='displayTable1'><thead>";
+										buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";						
+										
+										for(let k = jsonList.length-1; k >= 0; k--) 
+										{
+											buildHTML += `<tr><td>${jsonList[k].id}</td><td>${jsonList[k].query_date}</td><td>${jsonList[k].url}</td><td>
+											${jsonList[k].title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+										}
+														
+										buildHTML += "</tbody></table>"	
+										document.getElementById('div1').innerHTML = buildHTML;
+
+										break;	
+
+									case 'urlData':		
+
+										let queryStoreSuccessColor = "#90EE90";
+										let queryStoreFailColor = "red";
+
+										if(parseJSON.returnStatus == 'success') 
+										{	
+												if(typeof(jsonList) != 'undefined')
+												{
+														if(searchLoadType == 1)  {	
+																if(currentPageNumber == 1)
+																{
+																		if(jsonList.length > 0) {
+
+																			let w1 = resultsPerPage;
+
+																			if( (document.getElementById("displayTable1").rows.length-1)  == w1)
+																			{
+																					jsonList.shift();
+																			}																	
+																			
+																		}
+																		else {
+								 
+																			jsonList = [];
+																		}
+																}
+																else
+																{
+ 
+																		if(jsonList.length > 0) {
+																		 
+																			jsonList.shift();
+																		}
+																		else {
+								 
+																			jsonList = [];
+																		}
+																
+																}
+														
+														}
+														
+														
+														jsonList.push(parseJSON.data);
+												}
+												
+												let tableRef= document.getElementById("displayTable1");
+												
+												if(currentPageNumber == undefined) {
+													currentPageNumber = 1;
+							 
+												}
+												
+												if(currentPageNumber == 1) {
+		
+														
+														let row;
+														
+														if(tableRef.rows.length == 0)
+														{
+														
+																	buildHTML = "<table class='table table-bordered' id='displayTable1'><thead>";
+																	buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";						
+																	
+				 
+																	buildHTML += `<tr><td>${parseJSON.data.id}</td><td>${parseJSON.data.query_date}</td><td>${parseJSON.data.url}</td><td>
+																	${parseJSON.data.title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+							 
+																					
+																	buildHTML += "</tbody></table>"	
+																	document.getElementById('div1').innerHTML = buildHTML;
+														
+														}				
+														
+														else
+														{
+
+																if(jsonList.length == 0) {
+																	//buildHTML = "<table class='table table-bordered' id='displayTable1'><thead>";
+																	//buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";						
+																	
+				 
+																	//buildHTML += `<tr><td>${parseJSON.data.id}</td><td>${parseJSON.data.query_date}</td><td>${parseJSON.data.url}</td><td>
+																	//${parseJSON.data.title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+							 
+																					
+																	//buildHTML += "</tbody></table>"	
+																	//document.getElementById('div1').innerHTML = buildHTML;
+																	
+																}
+																
+																else
+																{
+									 
+																			
+																			 row = tableRef.insertRow(1);
+																			//let row = tableRef.insertRow(1);
+																			
+ 
+																			let cellID = row.insertCell(0);
+																			let query_date = row.insertCell(1);
+																			let theURL = row.insertCell(2);
+																			let theTitle = row.insertCell(3);
+																			let additionalInformationBtn = row.insertCell(4);
+
+																			cellID.innerHTML = parseJSON.data.id;
+																			query_date.innerHTML = parseJSON.data.query_date;
+																			theURL.innerHTML =  parseJSON.data.url;
+																			theTitle.innerHTML = parseJSON.data.title;
+																			additionalInformationBtn.innerHTML = '<button onClick="viewRow(this)" class="btnView">Additional Information</button>';
+																}
+																
+												 
+														}
+												
+												}
+												else
+												{
+										
+														
+												}
+
+												setStatus(`Status: URL data retrieval successful!`);	
+												
+ 
+												
+												let pageLabelData = modifyPageNumberLabel(currentPageNumber, parseJSON.pageCount);
+												document.getElementById('pageNumber').innerHTML = pageLabelData;
+												
+												
+ 
+											
+												if(searchLoadType == 0)
+												{
+														try
+														{
+															tableRef.rows[1].style.backgroundColor  ="#90EE90";
+															setTimeout(() => {
+																
+																for(let a = 0; a < tableRef.rows.length; a++) {
+																		tableRef.rows[a].style.backgroundColor  ="#FFF";
+																}
+																
+																setStatus(``);	 
+																}, 2000);
+														}
+														catch {}
+												}
+												
+												else
+												
+												{	
+								 
+														
+														if(currentPageNumber == 1) {
+																	 
+ 
+																	let x1 = resultsPerPage;
+																	
+																	if( (document.getElementById("displayTable1").rows.length-1)  > x1)
+																	{
+	
+																			let rowLength = document.getElementById("displayTable1").rows.length-1;
+																			document.getElementById("displayTable1").deleteRow(rowLength);
+																	}
+			 
+																		
+																	try
+																	{
+																			tableRef.rows[1].style.backgroundColor  ="#90EE90";
+																			setTimeout(() => {
+																				
+																				for(let a = 0; a < tableRef.rows.length; a++) {
+																						tableRef.rows[a].style.backgroundColor  ="#FFF";
+																				}
+																				
+																				setStatus(``);	
+																				}, 2000);
+																	}
+																	catch {}
+																		
+															
+															
+														}
+														
+														else
+														{
+														
+																	setTimeout(() => { setStatus(``);}, 2000);
+														}
+
+														
+												}
+ 
+										}
+										
+										else if(parseJSON.returnStatus == 'fail') 
+										{
+											setStatus(`<span style="color:${queryStoreFailColor}">Status: ${parseJSON.data}</span>`);	
+											setTimeout(() => { setStatus(``);	}, 2000);		
+										}
+										
+										else
+										{
+											setStatus(`<span style="color:${queryStoreFailColor}">Status: An unknown error occurred.</span>`);	
+										}
+										
+										if(iterator < urlQueue.length && ((iterator +1) != urlQueue.length)) {
+											iterator += 1;
+											nextURL(iterator) ;
+										}	
+										
+										else
+										{
+											urlQueue = [];
+											iterator = 0;	
+											fileUpload.value = '';
+										}
+												
+										previousPage = document.getElementById("previousPage");
+										nextPage = document.getElementById("nextPage");
+	
+									    if(currentPageNumber == 1) {
+											if(parseJSON.pageCount > 1)
+											{
+													nextPage.disabled = false;
+											}
+	
+									    }
+										
+										break;
+							}
+					   
+					   });
+		  });
+		  
+
+	  function viewRow(buttonObject) {
+	  
+		let buttons = document.getElementsByClassName("btnView");	
+		let a = -1;
+		
+		for(let i =  buttons.length-1; i >= 0; i--) {
+
+			if(buttonObject == buttons[i]) {
+				a = i
+				a = (buttons.length-1) - a;
+
+				break;
+			}
+			
+		}
+		
+ 
+		let theTitle = jsonList[a].title;
+		let theURL = jsonList[a].url;
+		let theBody = jsonList[a].body;
+
+		document.getElementById("popup_container2").style.display = "block";
+		document.getElementById('popup_content2').innerHTML = "";
+		var popup_content = document.getElementById('popup_content2');
+		var h2Text = document.createElement('h2');
+		var headerTextNode = document.createTextNode(theTitle);
+		h2Text.appendChild(headerTextNode);
+		popup_content.appendChild(h2Text);
+		var h5Text = document.createElement('h5');
+		headerTextNode = document.createTextNode(theURL);
+		h5Text.appendChild(headerTextNode);
+		popup_content.appendChild(h5Text);
+		
+		var br;
+		br = document.createElement("br");
+		popup_content.appendChild(br);
+ 
+ 
+		
+		
+		if(!theURL.includes('youtube.com'))
+		{
+				var boldtext = document.createElement('strong');
+				var textnode = document.createTextNode("Body Information");
+				boldtext.appendChild(textnode);
+				popup_content.appendChild(boldtext);
+				document.getElementById("popup_content2").style.margin = "0px 10px 20px 30px";
+				document.getElementById("popup_content2").style.font = "bold 20px arial,serif";
+
+				br = document.createElement("br");
+				popup_content.appendChild(br);
+		
+				var bodyInformation = document.createElement("TEXTAREA");
+				bodyInformation.setAttribute("id", "body_information");
+				bodyInformation.style.width = '100%';
+				bodyInformation.rows = "15";
+				bodyInformation.style.font = "bold 15px arial,serif";
+				bodyInformation.value = theBody;
+				popup_content.appendChild(bodyInformation);
+				
+				br = document.createElement("br");
+				popup_content.appendChild(br);
+				br = document.createElement("br");
+				popup_content.appendChild(br);
+				var btnOpenURL = document.createElement("BUTTON");
+				var btnOpenURLText = document.createTextNode("Open URL");
+				var btnBackgroundColor = "black";
+				var btnHoverColorCreate = "green";
+				var btnHoverColorCancel = "red";
+				btnOpenURL.style.width = "200px";
+				btnOpenURL.style.height = "50px";
+				btnOpenURL.style.backgroundColor = btnBackgroundColor;
+				btnOpenURL.style.color = "white";
+				btnOpenURL.setAttribute("id", "btnOpenURL");
+				btnOpenURL.addEventListener("click", function() {
+					window.open(theURL)
+				});
+				btnOpenURL.style.margins = "50px 50px 50px 50px";
+				var boldtext2;
+				boldtext2 = document.createElement('strong');
+				boldtext2.appendChild(btnOpenURLText);
+				btnOpenURL.appendChild(boldtext2);
+				popup_content.appendChild(btnOpenURL);	
+				 
+				br = document.createElement("br");
+				popup_content.appendChild(br);
+				br = document.createElement("br");
+				popup_content.appendChild(br);
+							
+				h2Text = document.createElement('h2');
+				headerTextNode = document.createTextNode('Scraped Images');
+				h2Text.appendChild(headerTextNode);	
+				popup_content.appendChild(h2Text);
+				
+				
+				var child = document.createElement('div');
+ 
+ 
+				
+				let buildImageList = "";
+				
+				
+				for(var b = 0; b < jsonList[a].images.length; b++)
+				{
+						buildImageList += '<img src='+jsonList[a].images[b]+'><br/><br/>';				
+				}
+				
+				
+				child.innerHTML = "";
+				child.innerHTML = buildImageList;
+				popup_content.appendChild(child);
+		}
+		
+		
+		else
+		{
+		
+				document.getElementById("popup_content2").style.margin = "0px 10px 20px 30px";
+				document.getElementById("popup_content2").style.font = "bold 20px arial,serif";
+				document.getElementById("popup_content2").style.height = "250px";		
+ 
+				let youtubeVideoID = theURL.split('?v=')[1];
+ 
+				var child = document.createElement('div');
+				//child.innerHTML = `<iframe width="820" height="445" src="https://www.youtube.com/embed/${youtubeVideoID}"></iframe>`;
+				child.innerHTML = `<iframe width="820" height="445" src="https://www.youtube.com/embed/${youtubeVideoID}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+
+				popup_content.appendChild(child);	
+		}
+	}		  
+		  
+	
+	function closePopup() {
+	document.getElementById("popup_container").style.display = "none";
+}
+
+
+	function closePopup2() {
+		document.getElementById("popup_container2").style.display = "none";
+		document.getElementById("popup_content2").innerHTML = "";
+}
+
+	function toNextPage() {
+			
+			let nextPageNumber = currentPageNumber+1;
+			documentData = {
+					command: 'loadPage',
+					appHTML: appHTMLPage,
+					parameters: {'pageNumber': nextPageNumber, 'resultsPerPage': resultsPerPage},
+					libraryName: focusedLibrary
+			};
+
+			socket.emit('client_msg', documentData);
+			
+	}
+
+	
+	function toPreviousPage() {
+			let nextPageNumber = currentPageNumber-1;
+			documentData = {
+					command: 'loadPage',
+					appHTML: appHTMLPage,
+					parameters: {'pageNumber': nextPageNumber, 'resultsPerPage': resultsPerPage},
+					libraryName: focusedLibrary					
+			};
+
+			socket.emit('client_msg', documentData);
+ 
+	}
+
+	
+	function openURLStore() {
+
+		 let documentData = {
+			command: 'loadApp',
+			appHTML: appHTMLPage,
+			parameters: '' 			
+		};
+
+		
+		socket.emit('client_msg', documentData);
+
+	
+	}
+
+	function createNewLibrary() {
+			let libraryName = document.getElementById('libraryName').value;
+			let libraryDescription = document.getElementById('libraryDescription').value;
+			
+			
+			libraryName = libraryName.replaceAll(' ', '_');
+
+			
+			if(libraryName.length == 0)
+			{
+				alert("You did not enter a valid library name.");
+				return;
+			}
+
+
+			if(libraryDescription.length == 0)
+			{
+				alert("You did not enter a valid library description.");
+				return;
+			}	
+			
+			
+			libraryName = libraryName.replaceAll('.', '');
+			
+			
+			documentData = {
+				
+						command: 'createNewLibrary',
+						libraryName: libraryName,
+						libraryDescription: libraryDescription
+			};
+				
+			socket.emit('client_msg', documentData);		
+	}
+	
+	function removeLibrary(libraryName) {
+	
+	
+			let format1 = libraryName.replaceAll('_', ' ');
+		
+			if (confirm(`Are you sure you want to delete library ${format1}?`)) {
+ 
+					documentData = {
+						
+								command: 'deleteLibrary',
+								libraryName: libraryName,
+
+					};
+					
+					socket.emit('client_msg', documentData);				
+			} 
+
+	}
+	
+
+ function loadMainMenuScreen() {
+
+		let buildHTML = `
+						<button class="newLibraryButton" onClick="newLibraryWindow()">+ New Library</button>
+						<div id="displayTable1">
+						</div>
+					
+					  <div id="popup_container">    
+					  <div id="popup"> 
+						 <div style="background-color: #FFFF; text-align: right;">
+							<button onclick="closePopup()" class="btn2">X</button>    
+						 </div>
+						 
+						 <div id="popup_content">
+
+						 </div>
+					  </div>    
+					 </div>      
+		
+		`;
+		
+		
+		
+	document.body.innerHTML = buildHTML;
+	openURLStore();
+		
+ }
+ 
+
+function openLibrary(parameters) {
+
+	
+	focusedLibrary = parameters.split(',')[0];
+	focusedLibrary = focusedLibrary.replaceAll('%comma%', ',');
+	
+	
+	libraryHeaderColor = parameters.split(',')[1];
+	
+	document.body.innerHTML = '';
+	
+	
+	let buildHTML;
+	
+	
+	buildHTML = `
+	
+				<br/> 
+				<b><label id='focusedLibraryHeader' style='color: ${libraryHeaderColor};'>${focusedLibrary.replaceAll('_', ' ')}</label></b><br/>
+				<button class="backToMainMenuButton" onClick="loadMainMenuScreen()">Go Back to Main Menu</button>
+				<br/><br/>
+				<button class="btn4" onClick="addURL()">Add URL</button>
+				<button class="btn4" onClick="buildSampleData()">Build Sample Data</button>
+				 <input  class="btn4" type="file" onchange="uploadFile(this.files)" accept=".txt,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" id="fileUpload">
+				<br/><br/>
+
+				<label id="status">Status:</label>
+				<br/><br/>
+				<div id="pageNavigation"><button id="previousPage"  onClick="toPreviousPage()" disabled>Previous Page</button>&nbsp;&nbsp;<label id="pageNumber">Page 1 of 1</label>&nbsp;&nbsp;<button id="nextPage" onClick="toNextPage()" disabled>Next Page</button></div><br/>
+
+				<div id="div1">
+					<table class="table table-bordered " id='displayTable1'>
+						<thead>
+						</tbody>
+					</table>
+
+				</div>
+
+				
+			  <div id="popup_container2">    
+			  <div id="popup2"> 
+				 <div style="background-color: #FFFF; text-align: right;">
+					<button onclick="closePopup2()" class="btn2">X</button>    
+				 </div>
+				 
+				 <div id="popup_content2">
+
+				 </div> 
+			  </div>    
+			 </div>      
+				
+	`;
+	
+	document.body.innerHTML = buildHTML;
+	
+	
+   console.log(focusedLibrary);
+   
+ 
+	
+	if(searchLoadType == 0) {
+	
+ 
+			
+			documentData = {
+				command: 'loadAllData',
+				appHTML: appHTMLPage,
+				parameters: '',
+				libraryName: focusedLibrary
+			};									
+
+	}
+	
+	else if(searchLoadType == 1) {
+
+		documentData = {
+		
+				command: 'loadPage',
+				appHTML: appHTMLPage,
+				parameters: {'pageNumber': 1, 'resultsPerPage': 15},
+				libraryName: focusedLibrary
+		};
+		
+		
+	}
+	
+	socket.emit('client_msg', documentData);
+
+	
+	
+	
+	
+	
+	
+	
+	
+}	
+	
+	
+	
+function appendLibraryEntryDiv(libraryName, description, logoColor) {
+ 
+ 
+		
+		
+ 
+		
+ 
+		let parameters = [libraryName.replace(/,/g, '%comma%'), logoColor];
+ 
+		
+		var div = document.createElement("div");
+        div.className = "entry";
+		let buildHTML = `
+
+				<h2 class="libraryName" style="color: ${logoColor}">${libraryName.replaceAll('_', ' ')}</h2>
+				<p class="libraryDescription">${description}</p>
+				<button class="menuButton1" onClick="openLibrary('${parameters}')">Browse URL Records</button>
+				<button class="menuButton1" onClick="removeLibrary('${libraryName}')">Remove Library</button>			
+		
+		`;
+		
+		div.innerHTML = buildHTML;
+
+		//document.getElementById("displayTable1").appendChild(div);
+		document.getElementById("displayTable1").prepend(div);
+ 
+
+}	
+	
+function newLibraryWindow() {
+
+		document.getElementById("popup_container").style.display = "block";
+		popup_content.style.marginLeft = '15px';
+		document.getElementById("popup_content").style.height = "275px";
+		
+		let buildHTML;
+		
+		buildHTML = `
+		<h1>Create Library</h1>
+		<b>Name of Library</b><br/>
+		 <input type="text" size="10" style="width: 300px; height: 30px;" id="libraryName">
+		 <br/><br/>
+		<b>Description</b><br/>
+		 <input type="text" size="10" style="width: 300px; height: 30px;" id="libraryDescription">
+		 <br/><br/>
+		 
+		 
+		 <button class="newLibraryButton" onClick="createNewLibrary()">Create New Library</button>
+		 <button class="newLibraryButton" onClick="closePopup()">Cancel</button>
+		
+		
+		`;
+		
+		
+		document.getElementById('popup_content').innerHTML = buildHTML;
+}
+
+	
+ 
+	</script>
+	
+</head>
+  
+<body>
+ 
+	<button class="newLibraryButton" onClick="newLibraryWindow()">+ New Library</button>
+	<div id="displayTable1">
+
+
+	</div>
+	
+
+  <div id="popup_container">    
+  <div id="popup"> 
+     <div style="background-color: #FFFF; text-align: right;">
+        <button onclick="closePopup()" class="btn2">X</button>    
+     </div>
+     
+     <div id="popup_content">
+
+     </div>
+     
+  </div>    
+ </div>      
+      
+	
+	
+	
+ 
+</body>
+  
+</html>

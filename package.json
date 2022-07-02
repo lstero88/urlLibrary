@@ -1,0 +1,23 @@
+{
+  "name": "mainMenu_urlStore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
+    "express": "^4.18.1",
+    "get-title-at-url": "^1.1.8",
+    "puppeteer": "^14.4.1",
+    "socket.io": "^4.5.1",
+    "request": "^2.88.2",
+    "usetube": "^2.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
