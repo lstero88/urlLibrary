@@ -3,20 +3,8 @@ const url = require('url');
 const querystring = require('querystring');
 const fs = require('fs');
 let urlArray = [];
-//const dirPath = 'libraries/library1';
 const jsonFileName = 'store.json';
-//const filePath = dirPath + '/' + jsonFileName;
 let jsonArray;
-
-
-//let data = fs.readFileSync(dirPath + '/list1.txt', "utf8");
-
-//const splitData = data.split('\r\n');
-//for(const item in splitData) {
-//	if(splitData[item].length > 0 && splitData[item].toString() !== ' ') {
-//		urlArray.push(splitData[item]);
-//	}
-//}
 const getDate = () => {
 	let currentDate = new Date();
 	let dd = currentDate.getDate();
@@ -32,20 +20,14 @@ const getDate = () => {
 	return currentDate;
 }
 class urlStore {
-	constructor(dirPath, jsonFileName, filePath )
-	{
-		
-			this.dirPath = dirPath;
-			this.jsonFileName = jsonFileName;
-			this.filePath = filePath;
-			
- 
-		
+	constructor(dirPath, jsonFileName, filePath) {
+		this.dirPath = dirPath;
+		this.jsonFileName = jsonFileName;
+		this.filePath = filePath;
 	}
 	getLastID() {
 		let lastID;
-		try
-		{
+		try {
 			if(fs.existsSync(this.filePath)) {
 				const data = fs.readFileSync(this.filePath, "utf8");
 				const data1 = JSON.parse(data);
@@ -59,8 +41,7 @@ class urlStore {
 			} else {
 				return 0;
 			}
-		}
-		catch {
+		} catch {
 			return -1;
 		}
 	}
@@ -70,7 +51,7 @@ class urlStore {
 		let jsonWrite = [];
 		switch(q.host) {
 			case "www.youtube.com":
-				getURL = externals.youtubeTitleRequest(adr,  (returnedData) => {
+				getURL = externals.youtubeTitleRequest(adr, (returnedData) => {
 					let lastID = this.getLastID();
 					jsonArray = {
 						'id': lastID,
@@ -79,15 +60,11 @@ class urlStore {
 						title: returnedData.title
 					};
 					try {
-						
 						let fPath = this.filePath;
-						
 						if(fs.existsSync(this.filePath)) {
 							fs.readFile(this.filePath, function(err, data) {
 								let json = JSON.parse(data);
 								json.push(jsonArray);
-								//console.log(json);
-								
 								fs.writeFile(fPath, JSON.stringify(json), function(err) {
 									if(err) throw err;
 									console.log('Writing completed!');
@@ -105,13 +82,13 @@ class urlStore {
 					} catch(err) {
 						console.log(err);
 					}
-				},                    (urlError) => {
+				}, (urlError) => {
 					console.log("An error occurred for URL " + urlError);
 					jsonArray = {
 						error: 'An error occurred for URL ' + urlError
 					};
 					callback(jsonArray);
-				}        );
+				});
 				break;
 			default:
 				getURL = externals.urlRequest(adr, (urlError) => {
@@ -122,24 +99,15 @@ class urlStore {
 					callback(jsonArray);
 				}, (returnedData) => {
 					let lastID = this.getLastID();
- 
-					//console.log(lastID);
-					//console.log(returnedData.title);
-					
 					if(lastID == -1) {
 						lastID = 0;
-						
-
 						jsonWrite.push(jsonArray);
 						fs.writeFile(this.filePath, JSON.stringify(jsonWrite), function(err) {
 							if(err) throw err;
 							console.log('Writing completed!');
 							callback(jsonArray);
-						});		
-						
-						
+						});
 					}
-					
 					jsonArray = {
 						'id': lastID,
 						'query_date': getDate(),
@@ -149,26 +117,14 @@ class urlStore {
 						images: returnedData.images
 					};
 					try {
-						
-							
- 
-									//console.log(this.filePath);				
 						let fPath = this.filePath;
-						
 						if(fs.existsSync(this.filePath)) {
-							
-
 							console.log(this.filePath);
-							
 							let fPath = this.filePath;
-							
 							fs.readFile(this.filePath, function(err, data) {
 								try {
 									let json = JSON.parse(data);
 									json.push(jsonArray);
-									
- 				
-							
 									fs.writeFile(fPath, JSON.stringify(json), function(err) {
 										if(err) {
 											console.log("an error occurred.");
@@ -180,9 +136,6 @@ class urlStore {
 							})
 						} else {
 							jsonWrite.push(jsonArray);
-							
- 
-							
 							fs.writeFile(this.filePath.replace(/ /g, ''), JSON.stringify(jsonWrite), function(err) {
 								if(err) throw err;
 								console.log('Writing completed!');
@@ -196,14 +149,4 @@ class urlStore {
 		}
 	}
 }
-//let urlParse = new urlParser();
-//for(const item in urlArray) {
-//console.log(urlArray[item]);
-//       urlParse.getURL(urlArray[item]);
-//}
-// console.log("final URL Array");
-// console.log(urlArray);
-//urlParse.getURL('https://www.youtube.com/watch?v=n5Qpg-iZPT8');
-//urlParse.getURL('http://www.msn.com', (returnData) => {
-//});
 exports.urlStore = urlStore;
