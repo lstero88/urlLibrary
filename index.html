@@ -13,144 +13,144 @@
 	
     <style>
 
-		body {
-			font-family: Roboto, Arial, sans-serif, Verdana;
-			margin: 15px;
-			margin-top: 2%;
-		}
-		
-		#div1
-		{
-			width: 80%;
-		}
-		
-		.btnView {
-			white-space: nowrap;
-			overflow-hidden;
-			background-color: #F0F8FF;
-			height: 30px;
-			font-weight: bold;
-		}
-		
-	#displayTable1 td {
-				word-wrap: break-word;
-				max-width: 500px;	
-		
-		}
-			
-	.btnView:hover {
-		  background-color:#002ead;
-		  color: #FFF;
-		  transition: 0.2s;
-	  }
+	body {
+	font-family: Roboto, Arial, sans-serif, Verdana;
+	margin: 15px;
+	margin-top: 2%;
+	}
 
-	  #status {
-	  
-		font-weight: bold;
-		font-size: 20px; 
-	  }
-	  
-	  #focusedLibraryHeader {
-		font-weight: bold;
-		font-size: 30px; 
-		
-	  }
-	  
-	 #popup_container2 {      
-			  display : none;      
-			  width :100%;      
-			  height : 100%;      
-			  background : rgba(50,50,50,0.5);      
-			  position : fixed;      
-			  top : 0;    
-			  left: 0;
-			   z-index : 500;      
+	#div1
+	{
+	width: 80%;
+	}
+
+	.btnView {
+	white-space: nowrap;
+	overflow-hidden;
+	background-color: #F0F8FF;
+	height: 30px;
+	font-weight: bold;
+	}
+
+	#displayTable1 td {
+	word-wrap: break-word;
+	max-width: 500px;	
+
+	}
+
+	.btnView:hover {
+	background-color:#002ead;
+	color: #FFF;
+	transition: 0.2s;
+	}
+
+	#status {
+
+	font-weight: bold;
+	font-size: 20px; 
+	}
+
+	#focusedLibraryHeader {
+	font-weight: bold;
+	font-size: 30px; 
+
+	}
+
+	#popup_container2 {      
+	display : none;      
+	width :100%;      
+	height : 100%;      
+	background : rgba(50,50,50,0.5);      
+	position : fixed;      
+	top : 0;    
+	left: 0;
+	z-index : 500;      
 	}      
-			  
-    #popup2 {      
-			  background : #FFF;      
-			  width : 85%;      
-			  height : 75%;
-			  margin : 15vh auto 10px auto;      
-			  overflow-y: scroll;
-	  }     
+
+	#popup2 {      
+	background : #FFF;      
+	width : 85%;      
+	height : 75%;
+	margin : 15vh auto 10px auto;      
+	overflow-y: scroll;
+	}     
 
 
 	.btn2 { 
-			background-color: #FFFFFF;  
-			border: 0;
-			font-weight: bold;
-			color: #00000;
-			width: 100px;
-			height: 30px;
-	 
-			hover: orange;
-			font-size: 25px;
-			height: 50px; 
-		   }
-	  
+	background-color: #FFFFFF;  
+	border: 0;
+	font-weight: bold;
+	color: #00000;
+	width: 100px;
+	height: 30px;
+
+	hover: orange;
+	font-size: 25px;
+	height: 50px; 
+	}
+
 	.btn2:hover { 
-			   background-color: #000080;
-			   color: #FFFFFF;
-			   font-size: 25px;
-			   }
+	background-color: #000080;
+	color: #FFFFFF;
+	font-size: 25px;
+	}
 
 	.btn2:active {
-			   background-color: orange;
-			   color: #FFFFFF;
-			   font-size: 25px;
-		}    	
+	background-color: orange;
+	color: #FFFFFF;
+	font-size: 25px;
+	}    	
 
 	.entry {
-		width: 30%;
-		display: inline-block;
+	width: 30%;
+	display: inline-block;
 
 
-		min-height: 235px;
-		max-height: 450px;
-		overflow-y: auto;
-		vertical-align: top; 
-		border: 1px solid #dbdbdb;
-		border-radius: 5px;
-		background-color: #FFFFFF;
-		margin: 10px;
-		border-bottom: 2px solid #dbdbdb;
+	min-height: 235px;
+	max-height: 450px;
+	overflow-y: auto;
+	vertical-align: top; 
+	border: 1px solid #dbdbdb;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	margin: 10px;
+	border-bottom: 2px solid #dbdbdb;
 
 	}
 
 	.entry:hover {
-		border-bottom: 2px solid blue;
+	border-bottom: 2px solid blue;
 	}
 
 	.libraryName {
-		padding-left: 5px
+	padding-left: 5px
 	}
 
 	.libraryDescription {
-		margin-left: 5px;
-		margin-right: 5px;
-		padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
 
-		font-size: 15px;
-		 
-		border-radius: 5px;
-		border: solid 1px #808080 ;
-		background-color: #f8f9fa;
-		min-height: 75px;
-		max-height: 75px;
-		overflow-y: auto;
+	font-size: 15px;
+
+	border-radius: 5px;
+	border: solid 1px #808080 ;
+	background-color: #f8f9fa;
+	min-height: 75px;
+	max-height: 75px;
+	overflow-y: auto;
 
 	}
 
 	.menuButton1 {
 
-		margin: 5px;
-		width: 95%;
-		background-color: #FFFFFF;
-		height: 30px;
-		font-size: 14px;
-		font-weight: bold;
-		white-space: nowrap;
+	margin: 5px;
+	width: 95%;
+	background-color: #FFFFFF;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
 
 
 	}
@@ -158,100 +158,100 @@
 	.menuButton1:hover {
 
 
-		background-color: #FAF9F6	;
-		margin: 5px;
-		width: 95%;
+	background-color: #FAF9F6	;
+	margin: 5px;
+	width: 95%;
 
-		height: 30px;
-		font-size: 14px;
-		font-weight: bold;
-		white-space: nowrap;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
 
 	}
 	.newLibraryButton {
 
-		margin: 5px;
-		width: 200px;
-		background-color: #00008B;
-		color: #FFFFFF;
-		height: 30px;
-		font-size: 14px;
-		font-weight: bold;
-		white-space: nowrap;
+	margin: 5px;
+	width: 200px;
+	background-color: #00008B;
+	color: #FFFFFF;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
 	}
 
 	.newLibraryButton:hover {
 
-		background-color: #2E5984	;
-		margin: 5px;
-		width: 200px;
+	background-color: #2E5984	;
+	margin: 5px;
+	width: 200px;
 
-		height: 30px;
-		font-size: 14px;
-		font-weight: bold;
-		white-space: nowrap;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
 
 	}
-	
-	
+
+
 	.backToMainMenuButton {
 
-		margin: 1px;
-		width: 220px;
-		background-color: #228B22;
-		color: #FFFFFF;
-		height: 50px;
-		font-size: 18px;
-		font-weight: bold;
-		white-space: nowrap;
+	margin: 1px;
+	width: 220px;
+	background-color: #228B22;
+	color: #FFFFFF;
+	height: 50px;
+	font-size: 18px;
+	font-weight: bold;
+	white-space: nowrap;
 	}
 
 	.backToMainMenuButton:hover {
 
-		background-color: #2E5984	;
-		margin: 1px;
-		width: 220px;
+	background-color: #2E5984	;
+	margin: 1px;
+	width: 220px;
 
-		height: 50px;
-		font-size: 18px;
-		font-weight: bold;
-		white-space: nowrap;
+	height: 50px;
+	font-size: 18px;
+	font-weight: bold;
+	white-space: nowrap;
 
 	}
 
 	#popup_container{      
-	  display : none;      
-	  width :100%;      
-	  height : 100%;      
-	  background : rgba(50,50,50,0.5);      
-	  position : fixed;      
-	  top : 0;    
-	  left: 0;
-	   z-index : 500;      
+	display : none;      
+	width :100%;      
+	height : 100%;      
+	background : rgba(50,50,50,0.5);      
+	position : fixed;      
+	top : 0;    
+	left: 0;
+	z-index : 500;      
 	}      
 
 	#popup{      
-	  background : #FFF;      
-	  width : 500px;      
-	  height : auto;
-	 
-	  margin : 25vh auto auto auto;      
+	background : #FFF;      
+	width : 500px;      
+	height : auto;
+
+	margin : 25vh auto auto auto;      
 
 	}    
 
-@media screen and (max-width: 500px) {
-	.entry {
-		width: 100%;
-		margin: 0px;
+	@media screen and (max-width: 500px) {
+		.entry {
+			width: 100%;
+			margin: 0px;
+		}
 	}
-}
 
-@media screen and (max-width: 750px) {
-	.entry {
-		width: 100%;
-		margin: 0px;
+	@media screen and (max-width: 750px) {
+		.entry {
+			width: 100%;
+			margin: 0px;
+		}
 	}
-}
 
     </style>
 	
@@ -416,7 +416,7 @@ socket.on('connection_accept', function(data) {
 				buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";
 				for(let k = jsonList.length - 1; k >= 0; k--) {
 					buildHTML += `<tr><td>${jsonList[k].id}</td><td>${jsonList[k].query_date}</td><td>${jsonList[k].url}</td><td>
-											${jsonList[k].title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+					${jsonList[k].title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
 				}
 				buildHTML += "</tbody></table>"
 				document.getElementById('div1').innerHTML = buildHTML;
@@ -445,7 +445,7 @@ socket.on('connection_accept', function(data) {
 				buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";
 				for(let k = jsonList.length - 1; k >= 0; k--) {
 					buildHTML += `<tr><td>${jsonList[k].id}</td><td>${jsonList[k].query_date}</td><td>${jsonList[k].url}</td><td>
-											${jsonList[k].title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+					${jsonList[k].title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
 				}
 				buildHTML += "</tbody></table>"
 				document.getElementById('div1').innerHTML = buildHTML;
@@ -462,13 +462,16 @@ socket.on('connection_accept', function(data) {
 									if((document.getElementById("displayTable1").rows.length - 1) == w1) {
 										jsonList.shift();
 									}
-								} else {
+								} 
+								else {
 									jsonList = [];
 								}
-							} else {
+							} 
+							else {
 								if(jsonList.length > 0) {
 									jsonList.shift();
-								} else {
+								} 
+								else {
 									jsonList = [];
 								}
 							}
@@ -485,7 +488,7 @@ socket.on('connection_accept', function(data) {
 							buildHTML = "<table class='table table-bordered' id='displayTable1'><thead>";
 							buildHTML += " <tr><th>ID</th><th>Query Date</th><th>URL</th><th>Title</th><th>Additional Information</th></tr></thead><tbody>";
 							buildHTML += `<tr><td>${parseJSON.data.id}</td><td>${parseJSON.data.query_date}</td><td>${parseJSON.data.url}</td><td>
-																	${parseJSON.data.title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
+									${parseJSON.data.title}</td><td><button onClick="viewRow(this)" class="btnView">Additional Information</button></td></tr>`;
 							buildHTML += "</tbody></table>"
 							document.getElementById('div1').innerHTML = buildHTML;
 						} else {
@@ -749,21 +752,21 @@ function removeLibrary(libraryName) {
 
 function loadMainMenuScreen() {
 	let buildHTML = `
-						<button class="newLibraryButton" onClick="newLibraryWindow()">+ New Library</button>
-						<div id="displayTable1">
-						</div>
-					
-					  <div id="popup_container">    
-					  <div id="popup"> 
-						 <div style="background-color: #FFFF; text-align: right;">
-							<button onclick="closePopup()" class="btn2">X</button>    
-						 </div>
-						 
-						 <div id="popup_content">
+		  <button class="newLibraryButton" onClick="newLibraryWindow()">+ New Library</button>
+		  <div id="displayTable1">
+		  </div>
 
-						 </div>
-					  </div>    
-					 </div>      
+		  <div id="popup_container">    
+		  <div id="popup"> 
+			 <div style="background-color: #FFFF; text-align: right;">
+				<button onclick="closePopup()" class="btn2">X</button>    
+			 </div>
+
+			 <div id="popup_content">
+
+			 </div>
+		  </div>    
+		 </div>      
 		
 		`;
 	document.body.innerHTML = buildHTML;
